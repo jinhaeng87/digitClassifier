@@ -10,7 +10,8 @@ The packet contains both sets for training and testing purposes, respectively an
 ~~~
 train_df = pd.read_csv('train.csv')
 test_df = pd.read_csv('test.csv')
-
+~~~
+~~~
 train_df.head()
 test_df.head()
 ~~~
