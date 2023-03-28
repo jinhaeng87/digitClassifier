@@ -16,3 +16,9 @@ train_df.head()
 test_df.head()
 ``` 
 
+	label	pixel0	pixel1	pixel2	pixel3	pixel4	pixel5	pixel6	pixel7	pixel8	...	pixel774	pixel775	pixel776	pixel777	pixel778	pixel779	pixel780	pixel781	pixel782	pixel783
+0	1	0	0	0	0	0	0	0	0	0	...	0	0	0	0	0	0	0	0	0	0
+1	0	0	0	0	0	0	0	0	0	0	...	0	0	0	0	0	0	0	0	0	0
+2	1	0	0	0	0	0	0	0	0	0	...	0	0	0	0	0	0	0	0	0	0
+3	4	0	0	0	0	0	0	0	0	0	...	0	0	0	0	0	0	0	0	0	0
+4	0	0	0	0	0	0	0	0	0	0	...	0	0	0	0	0	0	0	0	0	0
