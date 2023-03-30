@@ -8,7 +8,7 @@ Please note that the dataset used in the project can be retrieved from <a href>h
 The packet contains both sets for training and testing purposes, respectively and utilizing panda's dataframe, we can further investigate how the data is composed of </p>
 <br>
   
-```{python}
+```python3
 train_df = pd.read_csv('train.csv')
 test_df = pd.read_csv('test.csv')
 print(train_df.shape)
@@ -36,7 +36,7 @@ train_df.head()
 ## Data Analysis
 <p> To start off analysis, first task in the pipeline would be to observe response variable, which in this case is the label or the classes. From the desscription of the MNIST, it is expected that the response variable contains digits from 0-9 so we need to confirm that such is the case and also take a look at the distribution of the classes.
   
-```{python}
+```python3
 num_classes = len(np.unique(train_df['label']))
 Y_train = train_df["label"]
 
