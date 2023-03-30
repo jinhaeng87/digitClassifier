@@ -103,5 +103,34 @@ Displaying first 7 classes and their labels:
 | <img src="/Pic/digit1.png" alt="Alt text" title="First 7 images displayed"> |
 |:--:|
 |*Checking the first 7 images and corresponding labels*|  
+  </p>
+  
+## Data Preparation
+There are a few data preparation processes required. First, single image of 784 pixels need to be reshaped into a square matrix of 28x28. <br>
+Also 8bits of RGB is rescaled via normalization, as well as response variable vector needs to be converted to a binary class matrix. <br>
 
+### Image Augmentation
+Another big part of data preparation is the image augmentation. It is commonly used technique in deep learning and computer vision in order to enhance deep neural network to perform better and reduce overfitting. Additionally to expand and generalize training dataset the following image augmentation is implemented:
+* Train/validation split of 70/30
+* Rotation angle upto 30 degree
+* Zooming range upto 3%
+  
+
+```python3
+def data_prep(x_train, x_test, y_train, testSize = 0.3):
+    # Reshaping into desired format (28x28)
+    x_train = x_train.values.reshape(-1, 28, 28, 1)
+    x_test = x_test.values.reshape(-1,28,28,1)
+    x_test = x_test/255.
+    
+    # Converting class vector into binary class matrix
+    y_train = to_categorical(y_train, num_classes = num_classes)
+    
+    # Train with 70/30 train/test split
+    imgAug = ImageDataGenerator(validation_split = testSize, rescale = 1./255, rotation_range = 30, zoom_range = 0.03)
+    train_itr = imgAug.flow(x_train, y_train, batch_size = 50, subset='training')
+    validation_itr = imgAug.flow(x_train, y_train, batch_size = 50, subset='validation')
+    
+    return train_itr, validation_itr, x_test
+```
 
