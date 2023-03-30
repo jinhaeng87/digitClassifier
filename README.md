@@ -47,6 +47,6 @@ sns.countplot(x = y_train)
 plt.show()
 
 ```
-| <img src="/Pics/msno.png" alt="Alt text" title="Null Stats for the Dataset"> |
+| <img src="/Pics/countplot.png" alt="Alt text" title="Distribution of Response Variable"> |
 |:--:|
-|*Checking for Nulls in the Dataset (Notice all features are without any nulls)*|  
+|*Checking distribution and frequency of each class.*|  
