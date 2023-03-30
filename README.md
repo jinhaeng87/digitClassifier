@@ -32,3 +32,18 @@ train_df.head()
 
 <p> We can see that the dataset is composed of a column of labels, followed by 784-pixel-columns comprised of RGB components <br>
   We can also note that the test dataset is formatted in a exact same way but without the label column. Because each image is a square shaped, from 784 we can sqrt it so that the dimension is 28x28. We will prepare the data accordingly keeping these notes in mind. For now, let us further investigate by data analysis. </p>
+
+## Data Analysis
+<p> To start off analysis, first task in the pipeline would be to observe response variable, which in this case is the label or the classes. From the desscription of the MNIST, it is expected that the response variable contains digits from 0-9 so we need to confirm that such is the case and also take a look at the distribution of the classes.
+  
+```{python}
+num_classes = len(np.unique(train_df['label']))
+Y_train = train_df["label"]
+
+X_train = train_df.drop(labels = ["label"],axis = 1) 
+del train_df 
+  
+sns.countplot(x = Y_train)
+  
+```
+  
