@@ -134,3 +134,45 @@ def data_prep(x_train, x_test, y_train, testSize = 0.3):
     return train_itr, validation_itr, x_test
 ```
 
+## Neural Network Modeling
+For image classification in specific, neural network has proved its' efficiency and Convolutional Neural Network or CNN algorithm is chosen for this project. Various filters are applied to detect different features of an image. With proper kernal size and rectified linear unit (ReLU) as an activation, it is strived to achieve optimized computation and modeling. <br>
+Callbacks are defined to allow early stopping when criteria are met. 
+  
+```python3
+def create_cnn_model(train_itr, val_itr, batch = 50, epochs = 40):
+    # Create callback to allow earlystopping
+    callback = callbacks.EarlyStopping(monitor = 'loss', min_delta = 0.001, patience = 5, 
+                                   restore_best_weights = True, verbose = 0)
+    
+    # Build a sequential CNN model (parameter defining)
+    cnn = Sequential([
+        Conv2D(filters = 16, kernel_size = 5, padding = 'same', activation = 'relu', input_shape = (28,28,1)),
+        MaxPool2D(pool_size = 2),
+        BatchNormalization(),
+        Conv2D(filters = 32, kernel_size = 5, padding = 'same', activation = 'relu'),
+        MaxPool2D(pool_size = 2),
+        BatchNormalization(),
+        Conv2D(filters = 64, kernel_size = 5, padding = 'same', activation = 'relu'),
+        MaxPool2D(pool_size = 2),
+        BatchNormalization(),
+        Flatten(),
+        Dense(units = 256, activation = 'relu'),
+        Dropout(0.4),
+        Dense(num_classes, activation = 'softmax')
+    ])
+    cnn.summary()
+    
+    # Complining the pre-defined model
+    cnn.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
+    cb = cnn.fit(
+        train_itr,
+        validation_data = val_itr,
+        batch_size = batch,
+        epochs = epochs,
+        callbacks = [callback]
+    )
+    
+    return cnn, cb
+```
+                                                                                                                           
+                                                                                                                           
