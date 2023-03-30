@@ -95,6 +95,11 @@ temp_num = 7
 print(f'\nDisplaying first {temp_num} classes and their labels:')
 plotImg(x_train.values, y_train.values, 1, temp_num, size = 10)
 ```
+  
+```
+Displaying first 7 classes and their labels:
+```
+  
 | <img src="/Pic/digit1.png" alt="Alt text" title="First 7 images displayed"> |
 |:--:|
 |*Checking the first 7 images and corresponding labels*|  
