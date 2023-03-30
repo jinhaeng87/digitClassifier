@@ -38,12 +38,15 @@ train_df.head()
   
 ```python3
 num_classes = len(np.unique(train_df['label']))
-Y_train = train_df["label"]
+y_train = train_df["label"]
 
-X_train = train_df.drop(labels = ["label"],axis = 1) 
+x_train = train_df.drop(labels = ["label"],axis = 1) 
 del train_df 
-  
-sns.countplot(x = Y_train)
-  
+
+sns.countplot(x = y_train)
+plt.show()
+
 ```
-  
+| <img src="/Pics/msno.png" alt="Alt text" title="Null Stats for the Dataset"> |
+|:--:|
+|*Checking for Nulls in the Dataset (Notice all features are without any nulls)*|  
