@@ -70,3 +70,33 @@ print(f'The number of invalid entries in the response variable is {(y_train > 9.
 
 print(f'The data type of response variable is all integers: {y_train.dtypes == int}')
 ```
+```
+The number of missing values in the train feature dataset is: 0
+The number of missing values in the test feature dataset is: 0
+The number of missing values in the response variable is: 0
+  
+The number of invalid entries in the train feature dataset is 0
+The number of invalid entries in the test feature dataset is 0
+The number of invalid entries in the response variable is 0
+  
+The data type of response variable is all integers: True
+```
+
+After affirming that the dataset is valid, we also want to go ahead and plot out some images and make sure label matches the image.
+```python3
+def plotImg(data, label, gridX, gridY, size = 5):
+    plt.figure(figsize=(size,size))
+    for i in range(gridX*gridY):
+        plt.subplot(gridX, gridY, i+1)
+        plt.imshow(data[i].reshape(28,28), cmap = 'gray')
+        plt.title(f'Class Digit: {label[i]}', fontsize = 8, fontweight='bold')
+  
+temp_num = 7
+print(f'\nDisplaying first {temp_num} classes and their labels:')
+plotImg(x_train.values, y_train.values, 1, temp_num, size = 10)
+```
+| <img src="/Pic/digit1.png" alt="Alt text" title="First 7 images displayed"> |
+|:--:|
+|*Checking the first 7 images and corresponding labels*|  
+
+
