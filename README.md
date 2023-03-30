@@ -50,3 +50,23 @@ plt.show()
 | <img src="/Pic/countplot.png" alt="Alt text" title="Distribution of Response Variable"> |
 |:--:|
 |*Checking distribution and frequency of each class.*|  
+
+  
+Next, we want to make sure if there are any invalid entries:
+* If any entry is null.
+* If any pixel entry is > 255 (RGB 8bit caps at 2^8 = 256) or negative.
+* If any entry in response variable is greater than 9 or negative. 
+* IF any entry in response variable is not an integer.
+
+```python3
+print('Checking for any null entries')
+print(f'The number of missing values in the train feature dataset is: {x_train.isna().any().sum()}')
+print(f'The number of missing values in the test feature dataset is: {x_test.isna().any().sum()}')
+print(f'The number of missing values in the response variable is: {y_train.isna().any().sum()}')
+
+print(f'The number of invalid entries in the train feature dataset is {(x_train > 255.).any().sum() + (x_train < 0.).any().sum()}')
+print(f'The number of invalid entries in the test feature dataset is {(x_test > 255.).any().sum() + (x_test < 0.).any().sum()}')
+print(f'The number of invalid entries in the response variable is {(y_train > 9.).any().sum() + (y_train < 0.).any().sum()}')
+
+print(f'The data type of response variable is all integers: {y_train.dtypes == int}')
+```
