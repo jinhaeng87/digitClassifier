@@ -47,6 +47,6 @@ sns.countplot(x = y_train)
 plt.show()
 
 ```
-| <img src="/Pics/countplot.png" alt="Alt text" title="Distribution of Response Variable"> |
+| <img src="/Pic/countplot.png" alt="Alt text" title="Distribution of Response Variable"> |
 |:--:|
 |*Checking distribution and frequency of each class.*|  
