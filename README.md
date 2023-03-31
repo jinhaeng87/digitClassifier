@@ -291,7 +291,7 @@ Epoch 36/40
 ```
 
 ## Model Evaluation
-Upon training, it imprints how loss and accuracy are changing after each epoch between training and validation set, but it would be nice to visualize them. 
+Great! we have successfully reached accuracy of 99.5% but how has learning performance changing over epoch? Upon training, it imprints how loss and accuracy are changing after each epoch between training and validation set, but it would be nice to visualize them. 
 
 ```python3
 def eval_model(model, tr_model, x_test, test_df):
@@ -321,7 +321,7 @@ def eval_model(model, tr_model, x_test, test_df):
 
 
 ## Model Prediction
-After target accuracy and threshold is reached, we would need to make predictions with test dataset. Afterwards, some of the predicted result is plotted again to see if predicted labels match with the images of test dataset. 
+After the target accuracy and threshold is reached, we would need to make predictions with test dataset. Afterwards, some of the predicted result is plotted again to see if predicted labels match with the images of test dataset. 
 
 | <img src="/Pic/result.png" alt="Alt text" title="Predicted Labels of the test dataset"> |
 |:--:|
