@@ -289,3 +289,29 @@ Epoch 35/40
 Epoch 36/40
 393/588 [===================>..........] - ETA: 9s - loss: 0.0178 - accuracy: 0.9948
 ```
+
+## Model Evaluation
+Upon training, it imprints how loss and accuracy are changing after each epoch between training and validation set, but it would be nice to visualize them. 
+
+```python3
+def eval_model(model, tr_model, x_test, test_df):
+    # Plot loss and accuracy of training vs. validation set to evaluate the performance of the model
+    df_hist = pd.DataFrame(tr_model.history)
+    df_hist.loc[:, ['loss', 'val_loss']].plot()
+    df_hist.loc[:, ['accuracy', 'val_accuracy']].plot()
+    
+    # Prediction
+    print('Starting the prediction')
+    y_pred = model.predict(x_test)
+    
+    # Creating output in a dataframe
+    out_df = test_df.copy()
+    out_df['Label'] = np.argmax(y_pred, axis = 1)
+    out_df['ImageId'] = out_df.index + 1
+    
+    return out_df
+```
+  
+
+  
+  
