@@ -315,5 +315,16 @@ def eval_model(model, tr_model, x_test, test_df):
 |:--:|
 |*Plot of loss over assigned epochs*|  
 
+| <img src="/Pic/lossplot.png" alt="Alt text" title="Training Accuracy vs. Validation Accuracy"> |
+|:--:|
+|*Plot of accuracy over assigned epochs*|  
+
+
+## Model Prediction
+After target accuracy and threshold is reached, we would need to make predictions with test dataset. Afterwards, some of the predicted result is plotted again to see if predicted labels match with the images of test dataset. 
+
+| <img src="/Pic/result.png" alt="Alt text" title="Predicted Labels of the test dataset"> |
+|:--:|
+|*predicted labels of the test dataset*|  
   
   
