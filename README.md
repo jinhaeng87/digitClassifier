@@ -311,7 +311,9 @@ def eval_model(model, tr_model, x_test, test_df):
     
     return out_df
 ```
-  
+| <img src="/Pic/lossplot.png" alt="Alt text" title="Training Loss vs. Validation Loss"> |
+|:--:|
+|*Plot of loss over assigned epochs*|  
 
   
   
